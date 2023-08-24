@@ -82,8 +82,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        $types = Type::all();
         /* rimanda al file edit.blade.php */
-        return view('admin.posts.edit', compact('post'));
+        return view('admin.posts.edit', compact('post', 'types'));
     }
 
     /**
