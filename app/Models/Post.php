@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 use App\Models\Type;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Post extends Model
 {
@@ -15,7 +16,7 @@ class Post extends Model
 
     protected $fillable = ['title', 'content', 'image', 'slug', 'type_id'];
 
-    public function type()
+    public function type(): BelongsTo
     {
         return $this->belongsTo(Type::class); //relazione uno a molti tra post e tipo di post
     }
