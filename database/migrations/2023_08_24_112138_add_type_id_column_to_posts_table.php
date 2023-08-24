@@ -14,7 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            //
+            /* Creo la nuova colonna come unsignedBigInteger */
+            $table->unsignedBigInteger('type_id')->nullable()->after('id');
+
+            /* CREO IL VINCOLO/FOREIGN KEY */
+            $table->foreign('type_id')->references('id')->on('types')->onDelete('set null');
         });
     }
 
