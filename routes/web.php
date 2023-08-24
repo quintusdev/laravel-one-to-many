@@ -26,6 +26,8 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     /* Creazione rotte di POSTS */
     Route::resource('posts', PostController::class);
+    /* Creazione rotte di TYPES */
+    Route::resource('types', TypeController::class);
 });
 
 Route::middleware('auth')->group(function () {
