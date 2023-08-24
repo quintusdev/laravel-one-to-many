@@ -24,7 +24,8 @@ class UpdatePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:50'
+            'title' => 'required|max:50',
+            'type_id' => 'required|exists:types,id'
         ];
     }
 
@@ -32,7 +33,10 @@ class UpdatePostRequest extends FormRequest
     {
         return [
             'title.required' => 'Il titolo è obbligatorio',
-            'title.max'  => "Il titolo deve avere meno di :max caratteri."
+            'title.max'  => "Il titolo deve avere meno di :max caratteri.",
+            /* messaggi di errore per la tipologia */
+            'type_id.required' => "Devi selezionare una categoria",
+            'type_id.exists' => "Categoria selezionata non valida"
         ];
     }
 }
